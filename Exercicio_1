@@ -1,0 +1,64 @@
+char entrada = '0';
+int led10 = 10;
+int led11 = 11;
+int led12 = 12;
+int led13 = 13;
+void setup(){   
+ Serial.begin(9600);
+ 
+ pinMode(led10, OUTPUT);
+ pinMode(led11, OUTPUT);
+ pinMode(led12, OUTPUT);
+ pinMode(led13, OUTPUT);
+}
+void loop()
+{
+  if (Serial.available() > 0)
+  {
+    entrada = Serial.read();
+    if(entrada == 'a')
+    {
+      digitalWrite(led10,HIGH);
+      digitalWrite(led11,HIGH);
+      digitalWrite(led12,HIGH);
+      digitalWrite(led13,HIGH);
+     
+    }
+    else if(entrada == 'x')
+    {
+      digitalWrite(led10,LOW);
+      digitalWrite(led11,LOW);
+      digitalWrite(led12,LOW);
+      digitalWrite(led13,LOW);
+    }
+    else if (entrada == 'r')
+    {
+      digitalWrite(led13, HIGH);
+      digitalWrite(led10,LOW);
+      digitalWrite(led11,LOW);
+      digitalWrite(led12,LOW);
+    }
+    else if (entrada == 'y')
+    {
+      digitalWrite(led12, HIGH);
+      digitalWrite(led10,LOW);
+      digitalWrite(led11,LOW);
+      digitalWrite(led13,LOW);
+    }
+    else if (entrada == 'g')
+    {
+      digitalWrite(led11, HIGH);
+      digitalWrite(led10,LOW);
+      digitalWrite(led12,LOW);
+      digitalWrite(led13,LOW);
+    }
+    else if (entrada == 'b')
+    {
+      digitalWrite(led10, HIGH);
+      digitalWrite(led12,LOW);
+      digitalWrite(led11,LOW);
+      digitalWrite(led13,LOW);
+    }
+  }
+  
+}
